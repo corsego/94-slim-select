@@ -18,7 +18,13 @@
 
   <div class="my-5">
     <%= form.label :user_id %>
-    <%= form.text_field :user_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%#= form.text_field :user_id, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.select :user_id, User.pluck(:email, :id) %>
+  </div>
+
+  <div class="my-5">
+    <%= form.label :tag_ids %>
+    <%= form.select :tag_ids, Tag.pluck(:name, :id), {}, {multiple: true} %>
   </div>
 
   <div class="inline">
